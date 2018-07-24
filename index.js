@@ -5199,7 +5199,11 @@ var ColladaLoader = function () {
 
     function extractDoubleSided( obj, element ) {
 
-        obj.doubleSided = false;
+      // Collada object being processed does not contain an `extra
+      // double_sided` node. Hardcoding `true` so elements are visible from
+      // both sides.
+
+        obj.doubleSided = true;
 
         var node = element.querySelectorAll('extra double_sided')[0];
 
